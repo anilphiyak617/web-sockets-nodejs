@@ -1,5 +1,6 @@
 import utils from "./utils.js";
-const URL = "wss://web-socket-backend-service.onrender.com";
+// const URL = "wss://web-socket-backend-service.onrender.com";
+const URL = "ws://localhost/5000";
 // USER-DATA
 export const userData = {
   clientID: null,
