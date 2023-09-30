@@ -26,5 +26,4 @@ To set up the chat application locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/nodejs-chat-app.git
-   cd nodejs-chat-app
+   git clone https://github.com/anilphiyak617/web-sockets-nodejs.git
