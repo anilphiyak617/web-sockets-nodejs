@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./components/modal.css">
+
+    <script defer type='module' src="./app.js"></script>
+    <script defer type='module' src="./components/modal.js"></script>
+</head>
+
+<body>
+    <!-- message list -->
+    <div class="chat-messages">
+        <!-- Your chat messages will be displayed here (example) -->
+        <div class="message-bubble">Hello there!</div>
+        <div class="message-bubble received-message">Hi! How can I help you?</div>
+        <!-- Add more messages here -->
+    </div>
+    <!-- input message -->
+    <div class="chat-container">
+        <input id="input-message" type="text" class="chat-input" placeholder="Type your message">
+        <button class="button" id="send-button">Send</button>
+    </div>
+    <!-- MODAL -->
+    <!-- The Modal -->
+    <button id="openModalBtn" class="button">Open Modal</button>
+    <div id="userDetailsModal" class="modal ">
+        <div class="modal-content">
+            <div class="close" id="closeModal">&times;</div>
+            <div>
+                <h2>Enter Your User Details</h2>
+            </div>
+
+            <div id="userDetailsForm">
+                <label for="username">Username:</label>
+                <input class="chat-input"="text" id="username" name="username" required>
+            </div>
+            <button class="button" id="user-details-button">Submit</button>
+        </div>
+    </div>
+</body>
+
+</html>

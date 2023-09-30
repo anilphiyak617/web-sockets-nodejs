@@ -1,47 +1,40 @@
-const socket = new WebSocket('ws://localhost:5001')
+import utils from "./utils.js";
 
-const createChatAndAppend = (text,isRecieved) => {
-  // console.log("Received message : ", message)
-  const messageContainer = document.querySelector(".chat-messages");
-  const receivedChat = document.createElement("div");
-    receivedChat.className = "message-bubble";
-    if (isRecieved === true) { 
-        receivedChat.className += " received-message";
-    }
-    receivedChat.innerText = text;
-    messageContainer.appendChild(receivedChat);
-}
+// USER-DATA
+export const userData = {
+  clientID: null,
+  userName: "no-name",
+};
+// DOM elements Selection
+const chatField = document
+  .getElementById("input-message")
+  .addEventListener("keydown", (e) => {
+    if (e.key === "Enter") utils.sendMessage(userData, socket);
+  });
 
-
-socket.addEventListener('message', (message) => { 
-    createChatAndAppend(message.data,true)
-})
+const sendButton = document
+  .getElementById("send-button")
+  .addEventListener("click", () => {
+    utils.sendMessage(userData, socket);
+  });
 
 // Connection opened fired when connection to the websocket is open
+const socket = new WebSocket("ws://localhost:5001");
 socket.addEventListener("open", (event) => {
-  socket.send("Hello Server!");
+  // console.log("connection opened -----  socket");
 });
 
-const inputEle = document.getElementById("input-message");
-const sendMessage = () => {
-    const message = {
-        type: "message",
-        text: inputEle.value,
-        // id: clientID,
-        date: Date.now(),
-    };
-    
-    if (message.text === "") return;
-    // sending messge to the server
-    socket.send(JSON.stringify(message))
-    // ressetting input values and focus
-    createChatAndAppend(message.text)
-    inputEle.value = ""
-    inputEle.focus();
-}
+// **** main socket handling
+socket.addEventListener("message", ({ data }) => {
+  data = JSON.parse(data);
+  // console.log(data);
+  if (data.type === "client-id") {
+    Object.assign(userData, { clientID: data.clientID });
+    return;
+  }
 
-const chatField = document.getElementById('input-message').addEventListener('keydown', (e) => { 
-    if (e.key === 'Enter') sendMessage();
-})
-
-const sendButton = document.getElementsByClassName('send-button')[0].addEventListener('click', sendMessage)
+  // console.log("from server", data);
+  const time = new Date(data.timeStamp).toLocaleTimeString();
+  console.log(time);
+  utils.createNewChat(data.text, true, data.userName, time);
+});

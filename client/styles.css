@@ -18,7 +18,7 @@ body {
     outline: none;
 }
 
-.send-button {
+.button {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -58,5 +58,21 @@ body {
      align-self: flex-start;
      /* Received messages on the left */
      background-color: #eee;
-     color: #333;
+    color: #333;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.message-time {
+    margin-left: 10px;
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 4px;
  }

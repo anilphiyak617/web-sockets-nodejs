@@ -1,0 +1,43 @@
+/* Styles for the chat container */
+.chat-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Styles for each chat message */
+.chat-message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* Styles for user information (name and time) */
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #888;
+    font-size: 12px;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.message-time {
+    margin-left: 10px;
+}
+
+/* Styles for the message content */
+.message-content {
+    background-color: #DCF8C6;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Styles for text within the message content */
+.message-content p {
+    margin: 0;
+    font-size: 16px;
+}
