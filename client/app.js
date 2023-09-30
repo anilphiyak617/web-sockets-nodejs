@@ -1,5 +1,5 @@
 import utils from "./utils.js";
-
+const URL = "ws://web-socket-backend-service.onrender.com";
 // USER-DATA
 export const userData = {
   clientID: null,
@@ -19,7 +19,7 @@ const sendButton = document
   });
 
 // Connection opened fired when connection to the websocket is open
-const socket = new WebSocket("ws://localhost:5001");
+const socket = new WebSocket(URL);
 socket.addEventListener("open", (event) => {
   // console.log("connection opened -----  socket");
 });
