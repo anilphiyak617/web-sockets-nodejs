@@ -4,7 +4,7 @@ export default (() => {
   function sendMessage(userData, socket) {
     const inputEle = document.getElementById("input-message"); // Define inputEle here
 
-    console.log(userData);
+    // console.log(userData);
     const message = {
       type: "message",
       text: inputEle.value,
