@@ -1,0 +1,62 @@
+body {
+    font-family: "Segoe UI", "Helvetica Neue", Roboto, Arial, sans-serif;
+}
+
+/* Style for the chat input and send button */
+.chat-container {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+
+.chat-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.send-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+  /* Chat messages container styles */
+  .chat-messages {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      /* Your messages on the right */
+      overflow-y: auto;
+      /* Enable vertical scroll for long messages */
+      max-height: 800px;
+      /* Limit the height and add scroll when needed */
+  }
+/* Style for chat messages (example) */
+ .message-bubble {
+     background-color: #007bff;
+     color: #fff;
+     padding: 8px 12px;
+     border-radius: 10px;
+     margin: 4px 0;
+     max-width: 70%;
+     /* Adjust based on your design */
+     word-wrap: break-word;
+     /* Wrap long words */
+ }
+
+ /* Received message style */
+ .received-message {
+     align-self: flex-start;
+     /* Received messages on the left */
+     background-color: #eee;
+     color: #333;
+ }
